@@ -1,26 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="mlogin-div" v-if="isLogin">
+      <Header />
+  </div>
+  <div class="chat" v-else>
+    <Header />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { useAuth } from '@/firebase'
+import Header from './components/Header'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components:{
+    Header
+  },
+  setup() {
+    const { user, isLogin, signOut, signIn } = useAuth()
+    return { user, isLogin, signOut, signIn }
   }
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style >
+* {
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
+.login-div{
+  background-color:black;
+  min-height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 100%;
+}
+
+	
 </style>
