@@ -1,25 +1,16 @@
 <template>
-  <div class="mlogin-div" v-if="isLogin">
-      <Header />
-  </div>
-  <div class="chat" v-else>
     <Header />
-  </div>
 </template>
 
 <script>
-import { useAuth } from '@/firebase'
-import Header from './components/Header'
+import Header from './components/Header.vue'
 export default {
   name: 'App',
   components:{
     Header
   },
-  setup() {
-    const { user, isLogin, signOut, signIn } = useAuth()
-    return { user, isLogin, signOut, signIn }
-  }
 }
+  
 </script>
 
 <style >
@@ -32,15 +23,7 @@ export default {
 	padding: 0;
 	box-sizing: border-box;
 }
-.login-div{
-  background-color:black;
-  min-height: 100vh;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  width: 100%;
-}
+
 
 	
 </style>
