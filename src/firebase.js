@@ -58,3 +58,12 @@ export function chatMtd() {
 //text: filter.clean(text),
   return { messages, sendMessage }
 }
+
+export function deleteMsg(msg){
+  messagesCollection.doc(msg).delete().then(() => {
+    console.log("Document successfully deleted!");
+    }).catch((error) => {
+        console.error("Error removing document: ", error);
+    });
+  
+}

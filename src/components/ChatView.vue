@@ -3,7 +3,7 @@
   <div class="chat-view">
     <div class="show-message">
       <div class="show">
-        <Message
+        <Message @click="deleteMessage(id)"
         v-for="{ id, text, userPhotoURL, userName, userId } in messages"
         :key="id"
         :sender="userId === user?.uid"
@@ -29,10 +29,9 @@
 
 <script>
 import { ref, watch, nextTick } from 'vue'
-import { authMtd, chatMtd } from '@/firebase'
+import { deleteMsg, authMtd, chatMtd } from '@/firebase'
 import SendIcon from './SendIcon.vue'
 import Message from './Message.vue'
-//import ScrollableContainer from 'vue-scrollable-container';
 
 export default {
   components: { Message, SendIcon },
@@ -58,7 +57,9 @@ export default {
     return { user, isLoggedin, messages, bottom, message, send }
   },
   methods:{
-    
+    deleteMessage(messageId){
+    deleteMsg(messageId)
+  }
   }
 }
 </script>
@@ -69,20 +70,22 @@ export default {
   align-items: center;
   display: flex;
   width: 100%;
+  padding: 0;
 }
 .send-btn{
     width: 3.5rem;
-    height: 3rem;
-    margin: 0.5%;
+    height: 3.2rem;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
     appearance: none;
     border: none;
     outline: none;
     background: none;
     display: block;
-    padding: 10px 15px;
+    padding: 10px 12px;
     border-radius: 50%;
-    background-color: white;
-    color: lightslategray;
+    background-color: lightslategray;
+    color: white;
 }
 .message-input{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -110,25 +113,22 @@ export default {
   justify-content: center;
   display: block;
   border-radius: 25px;
-  box-shadow: 0px 0px 12px rgba(100, 100, 100, 0.2);
-  border: solid 0.3rem lightslategray;
+  box-shadow: 1px 1px 12px rgba(100, 100, 100, 0.2);
   width: 60%;
-  height:83vh;
-  background-attachment: fixed;
-  background-color: lightslategray;
+  height:85vh;
+  padding-top: 1%;
+  background-color: lightsteelblue;
 }
 .show-message{
   width: 100%;
   height: 91.3%;
   overflow-x: hidden;
   overflow-y: scroll;
-  overflow-anchor: auto;
 }
 
 form{
     display: flex;
-    max-width: 100%;
-    margin-bottom: 25px;
+    
 }
 .chat-footer{
     background-attachment: fixed;
@@ -136,6 +136,12 @@ form{
     z-index: 20px;
     position: sticky;
     width: 100%;
+    width: 100%;
+    margin-bottom: 25px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 999px;
 }
 ::-webkit-scrollbar {
   width: 5px;
@@ -153,5 +159,6 @@ form{
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-200;
-}
+} 
+
 </style>

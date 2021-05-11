@@ -14,7 +14,7 @@
       </div> 
       <div v-else class="login-page">
         <h1 class="app-name-login"><strong class="strong">Zeraf Tech</strong>  Dev Chat</h1>
-        <h4>Chat with Zeraf Developers</h4>
+        <h4>Chat with Developers @Zeraf Technologies </h4>
         <p>Let's us know how we can help you</p>
          <button class="login-btn" @click="signIn">
             Log In With Google
@@ -45,6 +45,7 @@ export default {
   margin-right: 20%;
   margin-top: 0.5%;
   margin-bottom: 0;
+  padding: 0;
 }
 .app-name-login{
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;

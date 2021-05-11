@@ -43,7 +43,6 @@ export default {
 .message-text{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16;
-    margin-top: 5%;
     display: inline-block;
     border-radius: 999px;
     color: #333;
