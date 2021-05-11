@@ -9,9 +9,9 @@ export default {
 </script>
 <style scoped>
 .avatar{
-    width: 4rem;
-    height: 4rem;
-    border: solid 0.2rem white;
+    width: 3rem;
+    height: 3rem;
+    border: solid 0.rem white;
     border-radius: 50%;
 }
 </style>

@@ -2,11 +2,11 @@
   <div class="all">
     <div v-if="isLogin" class="loggedin-cont">
       <div class="nav">
-        <h1 class="app-name"><strong class="strong">Zeraf Dev Chat</strong></h1>
-        <button class="logout-btn" @click="signOut">
+        <h1 class="app-name">Zeraf Dev Chat</h1>
+        <Avatar :src="user.photoURL" />
+         <button class="logout-btn" @click="signOut">
           Log out
         </button>
-        <Avatar :src="user.photoURL" />
         </div>
         <div class="chat">
           <ChatView />
@@ -37,9 +37,13 @@ export default {
 }
 </script>
 <style scoped>
-.strong{
-
-  font-size: 4rem;
+.chat{
+  justify-content: center;
+  align-content: center;
+  display: block;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 0.5%;
 }
 .app-name-login{
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -66,7 +70,8 @@ p{
   margin-top: 2%;
 }
 .app-name{
-  padding-right: 2.5rem;
+  padding-left: 10%;
+  padding-right: 40%;
   color: white;
   align-items: center;
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -81,8 +86,8 @@ p{
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
-  height: 100%;
+  min-height: 70vh;
+  max-height: 100%;
   background-attachment: fixed;
   background-color: lightslategray;
 } 
@@ -100,10 +105,10 @@ p{
   border: solid 0.15rem white;
   padding: 1rem;
   font-weight: bold;
-  border-radius: 4%;
+  border-radius: 999px;
   margin-left: 10%;
   margin-top: 3%;
-  box-shadow: 0px 0.7px 2.8px #F5F5F5;
+  box-shadow: 0px 0.7px 2.8px darkgray;
 }
 .login-btn:hover{
   margin: 1.5rem;
@@ -112,7 +117,7 @@ p{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   border: solid 0.15rem #F5F5F5;
   padding: 1rem;
-  border-radius: 4%;
+  border-radius: 999px;
   margin-left: 10%;
   margin-top: 3%;
   box-shadow: 0px 0.7px 2.8px #F5F5F5;
@@ -124,14 +129,14 @@ p{
   background: none;
   display: block;
   box-shadow: 0px 0px 3px white;
-  margin: 2.5rem;
+  margin: 1.5%;
   background-color: lightslategray;
   color: white;
   text-justify: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   border: solid 0.15rem white;
   padding: 1rem;
-  border-radius: 25%;
+  border-radius: 999px;
   float: right;
 }
 .nav{
@@ -139,10 +144,11 @@ p{
   background-attachment: fixed;
   background-color: lightslategray;
   width: 100%;
-  height: auto;
   display: flex;
-  justify-content: center;
   align-items: center;
+  max-height: 10rem;
+  z-index: 20px;
+  position: sticky;
 }
 
 </style>
