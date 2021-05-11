@@ -131,13 +131,14 @@ p{
   background: none;
   display: block;
   box-shadow: 0px 0px 3px white;
-  margin: 1%;
+  margin: 0.5%;
+  margin-left: 3%;
   background-color: lightslategray;
   color: white;
   text-justify: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   border: solid 0.15rem white;
-  padding: 1rem;
+  padding: 0.6rem;
   border-radius: 999px;
   float: right;
 }

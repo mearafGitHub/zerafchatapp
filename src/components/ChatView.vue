@@ -14,7 +14,7 @@
       </div>
     </div>
        
-    <div class="spacer"></div>
+    <div class="separator"></div>
     <div class="chat-footer" >
       <form v-if="isLoggedin" @submit.prevent="send">          
         <input type="text" v-model="message" class="message-input" placeholder="Write your message here..." required />
@@ -58,8 +58,12 @@ export default {
   },
   methods:{
     deleteMessage(messageId){
-    deleteMsg(messageId)
-  }
+      if(confirm('Do you want to delete this messsage?')){
+        alert(messageId)
+        deleteMsg(messageId)
+      }
+      
+    }
   }
 }
 </script>
@@ -73,8 +77,8 @@ export default {
   padding: 0;
 }
 .send-btn{
-    width: 3.5rem;
-    height: 3.2rem;
+    width: 3.3rem;
+    height: 3.0rem;
     margin-top: 0.5%;
     margin-bottom: 0.5%;
     appearance: none;
@@ -97,13 +101,13 @@ export default {
   display: block;
   width: 100%;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2px;
   padding: 0px 29px;
   color: #222;
   font-size: 16px;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-  background-color: white;
+  background-color: #D8E2DC;
   transition: 0.3s;
   border-radius: 999px;
 }
@@ -115,9 +119,10 @@ export default {
   border-radius: 25px;
   box-shadow: 1px 1px 12px rgba(100, 100, 100, 0.2);
   width: 60%;
-  height:85vh;
+  height:89vh;
   padding-top: 1%;
-  background-color: lightsteelblue;
+  padding-bottom: 0.63%;
+  background-color: white;
 }
 .show-message{
   width: 100%;
@@ -125,10 +130,15 @@ export default {
   overflow-x: hidden;
   overflow-y: scroll;
 }
-
+.sepa{
+  margin-bottom: 1%;
+  padding:12px;
+  background-color: transparent;
+}
 form{
     display: flex;
-    
+    margin-top:12px;
+    background-color: transparent;
 }
 .chat-footer{
     background-attachment: fixed;
@@ -139,9 +149,10 @@ form{
     width: 100%;
     margin-bottom: 25px;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-    background-color: white;
+    background-color: #D8E2DC;
     transition: 0.3s;
     border-radius: 999px;
+    
 }
 ::-webkit-scrollbar {
   width: 5px;

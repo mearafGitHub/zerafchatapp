@@ -1,16 +1,15 @@
 <template>
   <div class="message-container">
     <div class="flex" :class="sender ? 'current-user' : 'other-user'">
-       <div class="avata-col">
+       <div class="avatar-col">
             <Avatar class="image" :src="photoUrl" />
        </div>
         <div class="text-col">
-            <span class="username" v-if="!sender">{{ name }}</span>
+            <div class="username" v-if="!sender">{{ name }}</div>
             <div class="message-text" :class="sender ? 'right-side' : 'left-side'">
             {{text}}
         </div>
-        </div>
-        
+        </div> 
     </div>
   </div>
 </template>
@@ -30,15 +29,19 @@ export default {
 
 <style scoped>
 .right-side{
-    background-color:pink;
+    background-color:#DEE2FF
 }
 .left-side{
-    background-color: lightblue;
+    background-color: lightsteelblue;
     padding-top: 2%;
     padding-bottom: 2%;
 }
 .other-user{
     padding-right: 5%;
+}
+.text-col{
+    flex-direction:column;
+    flex-wrap:wrap;
 }
 .message-text{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -46,19 +49,19 @@ export default {
     display: inline-block;
     border-radius: 999px;
     color: #333;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.2rem;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-top: 1.6%;
+    padding-bottom: 1.6%;
+    padding-left: 4%;
+    padding-right: 3%;
     max-width: 75%;
 }
 .username {
     color: lightslategray;
     font-size: 16px;
     margin-bottom: 1%;
-    padding-left: 5%;
+    padding-left: 1%;
     padding-right: 5%;
     justify-content: center;
 }
@@ -75,6 +78,9 @@ export default {
     width: 100%;
     padding: 0.02rem;
     margin: 2%;
+    flex-direction:column;
+    flex-wrap:wrap;
+    display: inline-block;
  }
 
 </style>
