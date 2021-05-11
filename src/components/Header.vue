@@ -1,6 +1,6 @@
 <template>
   <div class="all">
-    <div v-if="isLogin" class="loggedin-cont">
+    <div v-if="isLoggedin" class="loggedin-cont">
       <div class="nav">
         <h1 class="app-name">Zeraf Dev Chat</h1>
         <Avatar :src="user.photoURL" />
@@ -26,13 +26,13 @@
 <script>
 import Avatar from './Avatar.vue'
 import ChatView from './ChatView.vue'
-import { useAuth } from '@/firebase'
+import { authMtd } from '@/firebase'
 
 export default {
   components: { Avatar, ChatView },
   setup() {
-    const { user, isLogin, signOut, signIn } = useAuth()
-    return { user, isLogin, signOut, signIn }
+    const { user, isLoggedin, signOut, signIn } = authMtd()
+    return { user, isLoggedin, signOut, signIn }
   }
 }
 </script>
@@ -44,6 +44,7 @@ export default {
   margin-left: 20%;
   margin-right: 20%;
   margin-top: 0.5%;
+  margin-bottom: 0;
 }
 .app-name-login{
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -70,7 +71,7 @@ p{
   margin-top: 2%;
 }
 .app-name{
-  padding-left: 10%;
+  padding-left: 7%;
   padding-right: 40%;
   color: white;
   align-items: center;
@@ -129,7 +130,7 @@ p{
   background: none;
   display: block;
   box-shadow: 0px 0px 3px white;
-  margin: 1.5%;
+  margin: 1%;
   background-color: lightslategray;
   color: white;
   text-justify: center;
@@ -146,7 +147,7 @@ p{
   width: 100%;
   display: flex;
   align-items: center;
-  max-height: 10rem;
+  max-height: 8rem;
   z-index: 20px;
   position: sticky;
 }

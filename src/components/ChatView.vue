@@ -2,7 +2,8 @@
   <div class="big-container">
   <div class="chat-view">
     <div class="show-message">
-      <Message
+      <div class="show">
+        <Message
         v-for="{ id, text, userPhotoURL, userName, userId } in messages"
         :key="id"
         :sender="userId === user?.uid"
@@ -10,12 +11,13 @@
         :photo-url="userPhotoURL"
         :text="text"
       />
+      </div>
     </div>
        
     <div class="spacer"></div>
     <div class="chat-footer" >
-      <form v-if="isLogin" @submit.prevent="send">          
-        <input type="text-area" v-model="message" class="message-input" placeholder="Write your message here..." required />
+      <form v-if="isLoggedin" @submit.prevent="send">          
+        <input type="text" v-model="message" class="message-input" placeholder="Write your message here..." required />
         <button class="send-btn" type="submit">
             <SendIcon />
         </button>
@@ -27,7 +29,7 @@
 
 <script>
 import { ref, watch, nextTick } from 'vue'
-import { useAuth, useChat } from '@/firebase'
+import { authMtd, chatMtd } from '@/firebase'
 import SendIcon from './SendIcon.vue'
 import Message from './Message.vue'
 //import ScrollableContainer from 'vue-scrollable-container';
@@ -35,8 +37,8 @@ import Message from './Message.vue'
 export default {
   components: { Message, SendIcon },
   setup() {
-    const { user, isLogin } = useAuth()
-    const { messages, sendMessage } = useChat()
+    const { user, isLoggedin } = authMtd()
+    const { messages, sendMessage } = chatMtd()
 
     const bottom = ref(null)
     watch(
@@ -53,7 +55,7 @@ export default {
       sendMessage(message.value)
       message.value = ''
     }
-    return { user, isLogin, messages, bottom, message, send }
+    return { user, isLoggedin, messages, bottom, message, send }
   },
   methods:{
     
@@ -103,24 +105,26 @@ export default {
   border-radius: 999px;
 }
 .chat-view{
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   display: block;
   border-radius: 25px;
   box-shadow: 0px 0px 12px rgba(100, 100, 100, 0.2);
-  
   border: solid 0.3rem lightslategray;
   width: 60%;
-  height:85vh;
+  height:83vh;
   background-attachment: fixed;
   background-color: lightslategray;
 }
-div.show-message{
+.show-message{
   width: 100%;
-  height: 90%;
+  height: 91.3%;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-anchor: auto;
 }
+
 form{
     display: flex;
     max-width: 100%;
