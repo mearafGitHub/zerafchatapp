@@ -28,13 +28,13 @@ export default {
 </script>
 
 <style scoped>
+
 .right-side{
-    background-color:#DEE2FF
+    background-color:#DEE2FF;
+    text-align: left;
 }
 .left-side{
     background-color: lightsteelblue;
-    padding-top: 2%;
-    padding-bottom: 2%;
 }
 .other-user{
     padding-right: 5%;
@@ -42,19 +42,19 @@ export default {
 .text-col{
     flex-direction:column;
     flex-wrap:wrap;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: -2px;
 }
 .message-text{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 16;
     display: inline-block;
-    border-radius: 999px;
+    border-radius: 29px;
     color: #333;
     font-size: 16px;
     line-height: 1.2rem;
-    padding-top: 1.6%;
-    padding-bottom: 1.6%;
-    padding-left: 4%;
-    padding-right: 3%;
+    padding: 13px;
     max-width: 75%;
 }
 .username {
@@ -66,10 +66,11 @@ export default {
     justify-content: center;
 }
 .current-user {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 15px;
+    padding-right: 15px;
     justify-content: right;
 	text-align: right;
+    align-items: right;
     direction: reverse;
 }
 .message-container {
