@@ -12,13 +12,17 @@
           <ChatView />
         </div>
       </div> 
-      <div v-else class="login-page">
-        <h1 class="app-name-login"><strong class="strong">Zeraf Tech</strong>  Dev Chat</h1>
-        <h4>Chat with Developers @Zeraf Technologies </h4>
-        <p>Let's us know how we can help you</p>
-         <button class="login-btn" @click="signIn">
-            Log In With Google
-        </button>
+     
+      <div v-else class="page-container">
+         <div class="login-page">
+           <h1 class="app-name-login"><strong class="strong">Zeraf Tech</strong>  Dev Chat</h1>
+            <h4>Chat with Developers @Zeraf Technologies </h4>
+            <p>Let's us know how we can help you</p>
+            <button class="login-btn" @click="signIn">
+                Log In With Google
+            </button>
+         </div>
+      
       </div> 
   </div>
 </template>
@@ -37,6 +41,14 @@ export default {
 }
 </script>
 <style scoped>
+.page-container{
+  background-image: url('~@/assets/bg.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: blueviolet;
+}
 .chat{
   justify-content: center;
   align-content: center;
@@ -61,7 +73,7 @@ h4{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: white;
   text-align: left;
-  margin-top: 2%;
+  margin-top: 3%;
   margin-left: 10%;
 }
 p{
@@ -69,7 +81,7 @@ p{
   color: white;
   text-align: left;
   margin-left: 10%;
-  margin-top: 2%;
+  margin-top: 3%;
 }
 .app-name{
   padding-left: 7%;
@@ -83,17 +95,15 @@ p{
   min-height: 100vh;
 }
 .login-page{
-  padding: 15rem;
+  padding-left: 14rem;
+  padding-top: 11rem;
   height: auto;
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 70vh;
-  max-height: 100%;
+  height: 100vh;
   background-attachment: fixed;
-  background-color: lightslategray;
 } 
-
 .login-btn{
   appearance: none;
   border: none;
@@ -110,19 +120,19 @@ p{
   border-radius: 999px;
   margin-left: 10%;
   margin-top: 3%;
-  box-shadow: 0px 0.7px 2.8px darkgray;
+  box-shadow: 0px 0.7px 2.8px black;
 }
 .login-btn:hover{
   margin: 1.5rem;
   background-color: lightslategrey;
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  border: solid 0.15rem #F5F5F5;
+  border: solid 0.15rem lightslategray;
   padding: 1rem;
   border-radius: 999px;
   margin-left: 10%;
   margin-top: 3%;
-  box-shadow: 0px 0.7px 2.8px #F5F5F5;
+  box-shadow: 0.4px 0.4px 3.8px black;
 }
 .logout-btn{
   appearance: none;

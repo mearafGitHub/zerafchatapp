@@ -19,14 +19,12 @@ export function authMtd() {
   const user = ref(null)
   const unsubscribe = auth.onAuthStateChanged(_user => (user.value = _user))
   onUnmounted(unsubscribe)
-  const isLoggedin = computed(() => user.value !== null)
-
   const signIn = async () => {
     const googleProvider = new firebase.auth.GoogleAuthProvider()
     await auth.signInWithPopup(googleProvider)
   }
+  const isLoggedin = computed(() => user.value !== null)
   const signOut = () => auth.signOut()
-
   return { user, isLoggedin, signIn, signOut }
 }
 
